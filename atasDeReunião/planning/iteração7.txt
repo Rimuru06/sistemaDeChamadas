@@ -1,0 +1,14 @@
+Reunião de iteração: 28/10 a 03/11
+
+Participantes: David Lopes; Matheus Janibelli; Thiago Aragão; Vitor Balestro.
+
+
+Atas:
+
+Pedido que os membros de gestão, quando fizerem sua reunião semanal, passar as pendências a desenvolvimento para debatermos antes da próxima iteração;
+
+Decidido que David e Thiago continuarão fazendo o front e Vitor e Matheus farão a integração font-back;
+
+Conforme front for finalizando todo o refinamento de cada tela, pode-se já passar para back;
+
+Back fará, em caso de a integração for mais rápida que a finalização das telas, o inicio do desenvolvimento da API de geolocalização.

@@ -1,0 +1,23 @@
+Planning iteração 5: 12/10/2023 - 18/10/2023
+
+Participantes: David Lopes; Erik Alves; Gabriel Tavares; João Costa; Matheus Janibelli; Thiago Aragão; Vitor Balestro.
+
+
+Tópicos:
+Validação das telas do Figma;
+
+Confirmação da API de back-end para o banco de dados do STI;
+
+Vitor e Janibelli montaram o servidor em Node para consumir a API do banco de dados;
+
+Thiago e David montaram as telas od Figma;
+
+Definido que Thiago e David seguiram com o desenvolvimento de todas as telas do front, menos as do hitórico (terceira entrega);
+
+Vitor e Janibelli iniciaram o desenvolvimento da parte com o GPS;
+
+Definido que desenvolvimento para a terceira entrega irá finalizar as telas de históricos, o desenvolvimento da parte do GPS e a integração front e back;
+
+Definido que a votação do planning poker será no sábado (14/10) as 15:00;
+
+Parte de gestão fez a análise de riscos, mas não chegou a apresentar.

@@ -1,0 +1,7 @@
+Iteração 4 (05/10 - 11/10)
+
+Backend: para a próxima iteração, escolher a tecnologia de backend (API + servidor BD) e criar o BD.
+
+Frontend: Criação dos layouts das telas no Figma.
+
+Gestão: para a próxima iteração, realizar o planning poker com todos os membros do grupo. Também marcamos uma reunião para o dia 08/10, na qual trataremos dos assuntos a serem abordados na segunda entrega.

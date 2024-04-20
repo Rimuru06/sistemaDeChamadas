@@ -1,5 +1,12 @@
 import { FlatList, View, StyleSheet, Text, Pressable, Dimensions } from 'react-native';
 import { useParams } from 'react-router-native';
+import AppBar from './AppBar';
+import { useState, useEffect } from 'react'
+import inscricaoService from '../services/inscricao'
+import turmaService from '../services/turma'
+import aulaService from '../services/aula'
+import StudentCard from './AlunoCard'
+import AbrirPresencaButton from './AbrirPresencaButton'
 
 const windowWidth = Dimensions.get('screen').width;
 
@@ -31,6 +38,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginLeft: 13,
     },
+    porcentNeg: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontStyle: 'italic',
+        color: 'red',
+    },
+    porcentPos: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontStyle: 'italic',
+        color: 'green',
+    },
     classHeaderStyle: {
         marginTop: 20,
         marginBottom: 5,
@@ -47,13 +68,29 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         //fontWeight: 'bold'
     },
-    presenteButton: {
+    presenteDarButton: {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'blue',
+        border: '1px solid blue',
         width: 65,
         height: 25,
         borderRadius: 5,
+    },
+    textPresenteDarButton: {
+        color: 'white'
+    },
+    presencaDadaButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        border: '1px solid blue',
+        width: 65,
+        height: 25,
+        borderRadius: 5,
+    },
+    textPresencaDadaButton: {
+        color: 'blue'
     },
     ausenteButton: {
         justifyContent: 'center',
@@ -79,75 +116,80 @@ const getCurrentDate = () => {
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const ListHeader = ({ className }) => {
+const ListHeader = ({ className, id_turma }) => {
     return (
         <View>
             <Text style={styles.classHeaderStyle}>{className}</Text>
             <Text style={styles.dateHeaderStyle}>{getCurrentDate()}</Text>
+            <AbrirPresencaButton style={{justifyContent: 'center', alignItems: 'center', display: 'flex' }} id_turma={id_turma}/>
         </View>
     )
 }
 
-const onPressCard = ({ student }) => {
-    console.log(JSON.stringify({student}));
-}
 
-const onPressPresente=({ student }) => {
-    console.log(JSON.stringify({student})+' Presente');
-}
+let ClassPage = () => {
+
+    let id_turma = useParams().id;
+    const [ turma, setTurma ] = useState()
+
+    const [ alunos, setAlunos ] = useState([])
 
 
-const onPressAusente=({ student }) => {
-    console.log(JSON.stringify({student})+' Ausente');
-}
+    useEffect(() => {
+        async function fetchTurma() {
+              const response = await turmaService.getTurmaPorId(id_turma);
+              setTurma(response.data[0]);
 
-const StudentCard = ({ student }) => {
+              const res_alunos = await inscricaoService.getAlunosPorTurma(id_turma)
+              setAlunos(res_alunos)
+              //console.log(res_alunos)
+            
+             
+        
+
+            
+
+              setAlunos(res_alunos.map((aluno) =>  {
+                
+                return { id_aluno: aluno.id_aluno, nome: aluno.nome, id_turma: aluno.id_turma, id_inscricao: aluno.id }
+
+              }))
+
+              return;
+        }
+             
+        fetchTurma()
+      }
+      , []);
+    
+      var turmaName = ""
+      var professor = ""
+      var alunosArray = []
+      
+    
+      if(turma !== undefined) {
+        turmaName = turma.nome_disciplina;
+        professor = turma.nome_professor;
+      }
+
+      if(alunos !== undefined) {
+        alunosArray = alunos
+      }
+
     return (
-
-        <Pressable onPress={() => onPressCard({student})}>
-            <View style={styles.flexCard}>
-                <Text style={styles.nameStyle}>{student}</Text>
-                <Pressable onPress={() => onPressPresente({student})} style={styles.presenteButton}>
-                    <Text style={{/*fontWeight: 'bold',*/ color:'white'}}>Presente</Text>
-                </Pressable>
-                <Pressable onPress={()=> onPressAusente({student})} style={styles.ausenteButton}>
-                    <Text style={{/*fontWeight: 'bold',*/ color:'white'}}>Ausente</Text>
-                </Pressable>
+        <>
+            <AppBar />
+            <View style={styles.container}>
+                <View style={{flex: 1, justifyContent:'center', alignItems: 'center'}}>
+                    <FlatList
+                        ListHeaderComponent={<ListHeader className={turmaName} id_turma={id_turma} />}
+                        data={alunosArray}
+                        ItemSeparatorComponent={ItemSeparator}
+                        renderItem={({ item }) => <StudentCard student={item}/>}
+                    />
+                </View>
             </View>
-        </Pressable>
-    )
-}
-
-const students = ["Lexie George",
-    "Nikolas Fisher",
-    "Mayra Jackson",
-    "Jewel Watson",
-    "Alexandra Finley",
-    "Emmalee French",
-    "Andres Roth",
-    "Bailey Everett",
-    "Catalina Chaney",
-    "Elisabeth Fuentes",
-    "Deven Bishop",
-    "Cael Rosario",
-    "Christopher Smith Hartmann Fields"]
-
-const ClassPage = () => {
-
-    const id = useParams().id;
-    const turmaHeader = id.split("-")[0] + " - " + id.split("-")[1]
-
-    return (
-        <View style={styles.container}>
-            <View style={{flex: 1, justifyContent:'center', alignItems: 'center'}}>
-                <FlatList
-                    ListHeaderComponent={<ListHeader className={turmaHeader} />}
-                    data={students}
-                    ItemSeparatorComponent={ItemSeparator}
-                    renderItem={({ item }) => <StudentCard student={item}/>}
-                />
-            </View>
-        </View>
+        </>
     );
 }
 

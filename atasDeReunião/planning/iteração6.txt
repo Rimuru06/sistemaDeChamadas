@@ -1,0 +1,25 @@
+Reunião de iteração: 21/10 a 27/10
+
+
+Participantes: David Lopes; Erik Alves; João da Costa; Matheus Janibelli; Thiago Aragão; Vitor Balestro.
+
+
+Ata:
+
+Decidido, fora da planning, alterar inicio e fim das iterações de quinta a quarta pra sabado a sexta;
+
+Validação do drop down do appbar da interface da segunda entrega, porém, com necessidade de continuar aprimorando pra terceira entrega;
+
+Validação da tela de presença do professor da interface da segunda entrega, porém, com necessidade de continuar aprimorando pra terceira entrega;
+
+Decidido em grupo que apresentaremos no primeiro dia de apresentações da segunda entrega;
+
+Validação do brurndown de gestão;
+
+Revisão das folhas de desenvolvimento da EAP;
+
+Pullrequest dos branches de appbar, tela de presença do professor e APi do banco de dados;
+
+Decidido que gestão montará slides e desenvolvimento irá rodar a demo na hora da apresentação;
+
+Decidido que faremos posteriorimente o questionamento da análise de valor agregado para adequar o tempo do projeto.

@@ -1,0 +1,10 @@
+Reunião da gestão - quarta iteração (05/10 a 11/10), realizada no dia 08/10:
+Participaram: Gabriel Tavares, Erik.
+Problemas identificados:
+>Necessidade da execução do planning poker a fim de possibilitar a realização das seguintes tarefas: dados de monitoramento e controle do projeto (Burndown dentro de cada iteração e Análise de Valor Agregado ao final de cada iteração)
+Sugestão: conversar com os membros do grupo na terça-feira (10/10) para confirmar a realização do planning poker na quinta-feira (12/10).
+Aquisições:
+>Análise de riscos - Planilha no Excel (Gabriel e Erik)
+Objetivos para próximas iterações:
+>Alterar o Gantt para incluir tempo de testagem.
+>Desenhar os gráficos de Burndown e AVA para cada iteração nas reuniões aos domingos 

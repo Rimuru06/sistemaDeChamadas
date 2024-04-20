@@ -1,0 +1,63 @@
+Reunião de gestão: 14/10/2023
+
+Participantes: David Lopes; Erik Alves; Gabriel Tavares; João da Costas; Matheus Janibelli; Thiago Aragão.
+
+
+Atas:
+
+Votação da pontuação de complexidade das tarefas para a segunda entrega (plannigpoker).
+
+Usado o site https://planningpokeronline.com/BS7n8HNv40CYKwfFDDlq/
+
+Decidido que a folha login (1) será autenticação (1) e terá as folhas "Consulta com banco de dados" e "Integração com front"
+
+Votação de consulta com banco de dados da autenticação -> 2 (1.8)
+
+Votação de integração com o front da autenticação -> 2 (2.3)
+
+Votação de tela de login da interface -> 1 (1.8)
+
+Votação de tela de turmas da interface -> 2 (1.8)
+
+Votação de appbar da interface -> 3 (2.7)
+
+Votação de histórico do aluno da interface -> 3 (3.3)
+
+Votação de histórico do professor da interface -> 3 (3.2)
+
+Votação de tela de presença pelo aluno da interface -> 2 (2)
+
+Votação de tela de presença pelo professor da interface -> 5 (5)
+
+Votação construção da API do banco de dados -> 1 (1)
+
+Votação pesquisa da implantação do GPS -> 3 (2.5)
+
+Votação teste e definição de API pro GPS -> 5 (5)
+
+Votação remover código hardcoded e integração front-back da tela de turmas -> 3 (3.5)
+
+Votação remover código hardcoded e integração front-back do appbar -> 2 (2)
+
+Votação remover código hardcoded e integração front-back do histórico do aluno -> 3 (2.5)
+
+Votação remover código hardcoded e integração front-back do histórico do professor -> 3 (2.8)
+
+Votação remover código hardcoded e integração front-back do presença pelo aluno -> 2 (2.1)
+
+Votação remover código hardcoded e integração front-back do presença pelo professor -> 2 (2.1)
+
+Votação pra porcentagem da presença -> 3 (3)
+
+Votação pro calculo do tempo real do aluno em sala GPS -> 5 (4.6)
+
+Fechamento da votação do planning poker para a segunda entrega
+
+Validação da análise de riscos feito pela equipe de gestão
+
+Reunião de Gestão: 15/10/2023
+Participaram: João da Costa, Erik
+Atribuições:
+>João: Atualização do Custo e Orçamento, Gráficos de Análise de Valor Agregado para todas as iterações até o momento
+>Erik: Atualização da APF, Gráficos de Burndown para todas as iterações até o momento
+>Gabriel: Colocar as atas de gestão que faltam no github

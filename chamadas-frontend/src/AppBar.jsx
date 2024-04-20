@@ -1,71 +1,74 @@
-import { Text, StyleSheet, View, ScrollView } from 'react-native';
-import React, { useState } from 'react'
-import { Link } from 'react-router-native'
+import React, { useState, useEffect } from 'react';
+import { Text, StyleSheet, View, SafeAreaView } from 'react-native';
+import { Link } from 'react-router-native';
 
 const styles = StyleSheet.create({
     appBarText: {
-        color: "white",
-        //fontWeight: 700
+        color: 'white',
     },
     container: {
-        height: 40,
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        gap:10
-    },
-    appBar: {
+        paddingTop: 20,
+        height: 60,
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 10,
         backgroundColor: 'blue',
-        paddingLeft:5
     },
-    saveAreaViewContainer: {
-        flex: 1, 
-        backgroundColor: '#FFF'
-    },
-    viewContainer: {
-        flex: 1, 
-        backgroundColor: '#FFF'
-    },
-    scrollViewContainer: {
-        flexGrow: 1,
+    buttonContainer: {
+        flex: 1,
+        flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingVertical: '10%',
     },
-    divider: {
-        width: 12
-    },
-})
-
-const AppBarTab = ({ title, route }) => {
-    return (
-    <Link to={route}>
-            <Text style={styles.appBarText}>{title}</Text>
-    </Link>
-    )
-}
-const appBarStyles = [ styles.container, styles.appBar ];
+});
 
 const SignedInAppBar = () => {
+
+    var cpf_user = ""
+    var role_user = ""
+    var id_user = ""
+
+    try{
+        cpf_user = window.localStorage.getItem('cpf_logged_user')
+        role_user = window.localStorage.getItem('role_logged_user')
+        id_user = window.localStorage.getItem('id_logged_user')
+    }catch {
+        
+    }
+
+    const [selectedCPF, setSelectedCPF] = useState('');
+
+    /* Fetch the CPF data from the database
+    useEffect(() => {
+        const fetchCPF = async () => {
+            // Replace the following line with your actual logic to fetch the unique CPF
+            // For simplicity, let's assume yourDatabaseFetchFunction returns the single CPF
+            const fetchedCPF = await yourDatabaseFetchFunction();
+            setSelectedCPF(fetchedCPF);
+        };
+
+        fetchCPF();
+    }, []);*/
+
+    const turmas_link = `/turmas/${role_user}/${id_user}`
+
     return (
-        <View style={appBarStyles}> 
-            <ScrollView  contentContainerStyle={{ gap: 15 }} horizontal>
-                <AppBarTab title="Aluno" route="/turmas/aluno" />
-                <AppBarTab title="Professor" route="/turmas/professor" />
-                <AppBarTab title="Sair" route="/login"/>
-            </ScrollView>
-        </View>
-    )
+        <SafeAreaView style={styles.container}>
+            <View style={styles.buttonContainer}>
+                <Text style={[styles.appBarText, { color: 'white' }]}>{cpf_user}</Text>
+                <Link to={turmas_link}>
+                    <Text style={styles.appBarText}>Turmas</Text>
+                </Link>
+                <Link to="/login">
+                    <Text style={styles.appBarText}>Sair</Text>
+                </Link>
+            </View>
+        </SafeAreaView>
+    );
 };
-
-
 
 const AppBar = () => {
-
-
-    return <SignedInAppBar  />
+    return <SignedInAppBar />;
 };
-
 
 export default AppBar;

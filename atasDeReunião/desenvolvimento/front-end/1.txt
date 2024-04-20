@@ -1,0 +1,17 @@
+Reunião de desenvolvimento (parte do front-end):
+Dia: 12/10/2023
+
+Participantes> David Lopes; Thiago Aragão
+
+
+Ata:
+
+Desenvolvimento dos seguintes telas no Figma: login; turmas; Appbar; Appbar com  dropdown; presença professor; presença aluno; histórico aluno (requer mais análise do grupo); histórico professor (requer mais análise do grupo)
+
+Definição dos fluxos de tela seguindo o Figma
+
+Levantamento de dúvidas em relação ao histórico
+
+
+
+https://www.figma.com/file/ZmtCrpRxqVIpAsSLDAtHYY/Untitled?type=design&node-id=0-1&mode=design&t=hjErJ8qqRmtwgxHz-0
